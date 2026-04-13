@@ -1,0 +1,122 @@
+:root {
+  --primary: #5b0606;
+  --primary-hover: #0c0441;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #15006e;
+  --text-muted: #64748b;
+  --success: #10b981;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin: 0;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Forms (Auth & Add Product) */
+.form-container {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 450px;
+  margin: 2rem auto;
+}
+
+.form-container h2, .form-container h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.25rem;
+}
+
+.product-price {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.2rem;
+}

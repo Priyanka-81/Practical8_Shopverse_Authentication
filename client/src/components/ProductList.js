@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 function ProductList() {
   const [products, setProducts] = useState([]);
 
-  // Fetch products from API
   useEffect(() => {
     getProducts()
       .then(res => setProducts(res.data))
@@ -18,15 +17,15 @@ function ProductList() {
 
       <div className="product-grid">
         {products.map(product => (
-          <div className="product-card" key={product.id}>
+          <div className="product-card" key={product._id}>
             
-            <img src={product.image} alt={product.title} />
+            <img src={product.image} alt={product.name} />
 
-            <h4>{product.title}</h4>
+            <h4>{product.name}</h4>
 
             <p className="price">${product.price}</p>
 
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${product._id}`}>
               <button className="btn">View Details</button>
             </Link>
 
