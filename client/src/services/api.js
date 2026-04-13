@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // This points to your Node.js backend
-const API_URL = "http://localhost:5000/api"; 
+const API_URL = "https://practical8-shopverse-authentication.onrender.com"; 
 
 const API = axios.create({ baseURL: API_URL });
 
