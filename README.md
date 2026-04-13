@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Shopverse MERN: Authentication & Testing Assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Shopverse is a full-stack e-commerce application developed as part of the FSD Semester 6 curriculum. This version of the project transitions from a frontend-only application to a robust MERN stack architecture featuring secure user authentication, cloud-based image management, and simulated payment processing.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+* **JWT Authentication**: Secure Register and Login APIs using `jsonwebtoken` and `bcryptjs` for password hashing.
+* **Product Management**: Full CRUD capabilities with data persisted in MongoDB.
+* **Image Uploads**: Integration with **Multer** and **Cloudinary** for professional-grade product image hosting.
+* **Mock Payment Gateway**: Simulated checkout API that returns success/failure responses based on transaction logic.
+* **Protected Routes**: Backend middleware ensuring only authenticated users can perform sensitive actions like product uploads.
+* **API Validation**: Comprehensive testing and validation performed via Postman.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```text
+Shopverse-React/
+├── client/                 # React Frontend
+│   ├── src/
+│   │   ├── components/     # UI Components (Auth, AddProduct, etc.)
+│   │   ├── services/api.js # API service using Axios
+│   │   └── App.js          # Main application logic
+│   └── package.json        # Frontend dependencies
+└── server/                 # Node.js & Express Backend
+    ├── config/             # Database connection (MongoDB)
+    ├── controllers/        # Business logic for Auth, Products, and Payments
+    ├── middleware/         # JWT Auth and Multer/Cloudinary config
+    ├── models/             # Mongoose Schemas (User, Product)
+    └── server.js           # Entry point
+```
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend: React, Axios, React Router
 
-### `npm run build`
+Backend: Node.js, Express.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Database: MongoDB Atlas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Storage: Cloudinary (via Multer)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Security: JSON Web Tokens (JWT), Bcrypt.js
 
-### `npm run eject`
+## Installation & Setup
+1. Prerequisites
+Node.js & npm installed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+MongoDB Atlas Cluster.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Cloudinary Account.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Environment Variables
+Create a .env file in the server/ directory:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Code snippet
+  PORT=5000
+  MONGO_URI=your_mongodb_connection_string
+  JWT_SECRET=your_jwt_secret
+  CLOUDINARY_CLOUD_NAME=your_name
+  CLOUDINARY_API_KEY=your_key
+  CLOUDINARY_API_SECRET=your_secret
+  
+3. Install Dependencies
+Backend:
+Bash
+cd server
+npm install
+Frontend:
 
-## Learn More
+Bash
+cd client
+npm install
+Running the Project
+Start the Backend
+Bash
+cd server
+npx nodemon server.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Start the Frontend
+Bash
+cd client
+npm start
+Frontend: http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Backend: http://localhost:5000
 
-### Code Splitting
+## Testing (Postman)
+The project includes a Postman collection to validate the following endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+POST /api/auth/register - Create a new user.
 
-### Analyzing the Bundle Size
+POST /api/auth/login - Authenticate and receive a JWT.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+POST /api/products/upload - Upload a product with an image (Requires Bearer Token).
 
-### Making a Progressive Web App
+POST /api/payment/mock - Simulate a successful checkout transaction.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Submission Details
+Student Name: Priyanka
 
-### Advanced Configuration
+Course: BTech Computer Science & Engineering (Sem 6)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Institution: Karnavati University
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Assignment: Practical: Authentication & Testing
